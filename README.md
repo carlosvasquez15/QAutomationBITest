@@ -18,7 +18,13 @@ Este repositorio contiene una aplicación Java que utiliza Selenium WebDriver, J
    git clone https://github.com/carlosvasquez15/QAutomationBITest.git
 
 2. Puede abrirlo con Eclipse o Spring Tools
-3. El análisis de requerimientos se encuentra a continuación.
+3. Importar el proyecto.
+4. Modificar la ruta del ChromeDriver en la clase Base.java
+5. Ejecutar suite: Run as JUnit Test.
+
+6. Video de funcionamiento:
+7. https://drive.google.com/file/d/1k_k1JYM2fDNwqpKwLsnjcIET5ODMcaoy/view?usp=sharing
+8. El análisis de requerimientos se encuentra a continuación.
 
 ####
 
