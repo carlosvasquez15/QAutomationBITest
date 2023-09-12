@@ -3,11 +3,15 @@ package com.testbi.pom;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 public class Base {
@@ -24,7 +28,7 @@ public class Base {
 		sistemaOperativo = System.getProperty("os.name").toLowerCase();
 		
 		if(sistemaOperativo.contains("win")) {
-			rutaDriver = "C:\\Users\\figof\\Downloads\\chromedriver-win64\\chromedriver.exe";
+			rutaDriver = "C:\\Users\\carlos\\Downloads\\chromedriver-win64\\chromedriver.exe";
 		}else if (sistemaOperativo.contains("mac")) {
 			rutaDriver = "/Users/carlos/Downloads/chromedriver_mac64/chromedriver";  
         }else {
@@ -57,8 +61,15 @@ public class Base {
 	}
 	
 	public void click(By locator) {
-		getDriver().findElement(locator).click();
+		getDriver().findElement(locator);
+		//findElementWait(locator).click();
 	}
+	
+	public void hacerScrollHaciaAbajo() {
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	}
+
 	
 	public Boolean isDisplayed(By locator) {
 		try {
@@ -88,6 +99,13 @@ public class Base {
             throw new IllegalArgumentException("Invalid window index: " + index);
         }
     }
+	
+	public WebElement findElementWait(By locator) {
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+		WebElement elemento = wait.until(ExpectedConditions.elementToBeClickable(locator));
+		return elemento;
+	}
+	
 	
 	/*public void waitForClickable(By locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator));

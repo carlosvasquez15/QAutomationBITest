@@ -69,7 +69,7 @@ public class FormTest {
 	    //findElement(By.id("uploadPicture")).click();
 	    Thread.sleep(1000);
 	    //findElement(By.id("uploadPicture")).clear();
-	    base.findElement(By.id("uploadPicture")).sendKeys("C:\\Users\\figof\\Downloads\\test.txt");
+	    base.findElement(By.id("uploadPicture")).sendKeys("/Users/carlos/Downloads/pruebas.rtf");
 	    Thread.sleep(1000);
 	    base.findElement(By.id("currentAddress")).click();
 	    base.findElement(By.id("currentAddress")).clear();

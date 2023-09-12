@@ -15,16 +15,17 @@ public class DynamicProperties {
 	By buttonEnable = By.id("enableAfter");
 	
 	public void test() throws InterruptedException {
-		System.out.println("Test DynamicProperties");		
+		System.out.println("Test DynamicProperties");
 		
 		base.click(elementsOption);
-		Thread.sleep(1000);
+		Thread.sleep(4000);
+		base.hacerScrollHaciaAbajo();
 		
 		base.click(dinamyc);		
 		Thread.sleep(5500);
 				
         base.click(buttonEnable);
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         
         if(buttonEnable == null) {
         	assert(false);

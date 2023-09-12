@@ -21,6 +21,7 @@ public class CheckBoxTest{
 	public void test() throws InterruptedException {
 		System.out.println("Test CheckBoxTest");
 		
+		
 		base.click(elementsOption);		
 	    Thread.sleep(1000);
 	    
@@ -29,6 +30,8 @@ public class CheckBoxTest{
 	    
 	    base.click(expandElement);	    
 	    Thread.sleep(1000);
+	    
+	    base.hacerScrollHaciaAbajo();
 	    
 	    base.click(wordFileElement);
 	    base.click(excelFileElement);

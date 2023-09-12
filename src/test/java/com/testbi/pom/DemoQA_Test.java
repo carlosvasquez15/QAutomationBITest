@@ -10,7 +10,9 @@ public class DemoQA_Test {
 	
 	private CheckBoxTest checkBoxPage;
 	private DynamicProperties dynamicProperties;
+	private WebTablesTest webTablesTest;
 	private FormTest formPage;
+
 	
 	@Before
 	public void setUp() {
@@ -33,6 +35,12 @@ public class DemoQA_Test {
 	
 	@Test
 	public void test3() throws InterruptedException {
+		webTablesTest = new WebTablesTest(this.base);
+		webTablesTest.test();
+	}
+	
+	@Test
+	public void test4() throws InterruptedException {
 		formPage = new FormTest(this.base);
 		formPage.test();
 	}
