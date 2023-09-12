@@ -14,9 +14,8 @@ public class Base {
 
 	private WebDriver driver;
 	
-	public Base(WebDriver driver) {
-		this.setDriver(driver);
-		//this.wait = new WebDriverWait(driver, Duration.of(10, null));
+	public Base() {
+		chromeDriverConnection();
 	}
 	
 	public WebDriver chromeDriverConnection() {
@@ -25,7 +24,7 @@ public class Base {
 		sistemaOperativo = System.getProperty("os.name").toLowerCase();
 		
 		if(sistemaOperativo.contains("win")) {
-			rutaDriver = "path/chromedriver.exe";
+			rutaDriver = "C:\\Users\\figof\\Downloads\\chromedriver-win64\\chromedriver.exe";
 		}else if (sistemaOperativo.contains("mac")) {
 			rutaDriver = "/Users/carlos/Downloads/chromedriver_mac64/chromedriver";  
         }else {
@@ -33,7 +32,6 @@ public class Base {
         }
 
 		System.setProperty("webdriver.chrome.driver", rutaDriver);
-		//System.setProperty("webdriver.http.factory", "jdk-http-client");
 		setDriver(new ChromeDriver());
 		return getDriver();
 	}

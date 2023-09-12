@@ -3,34 +3,44 @@ package com.testbi.pom;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 
 
-public class DemoQA_Test {
-	private WebDriver driver;
-	TestPage paginaAProbar;
+public class DemoQA_Test {	
+	private Base base;
+	
+	private CheckBoxTest checkBoxPage;
+	private DynamicProperties dynamicProperties;
+	private FormTest formPage;
 	
 	@Before
 	public void setUp() {
-		paginaAProbar = new TestPage(driver);
-		driver = paginaAProbar.chromeDriverConnection();
-		paginaAProbar.visitar("https://demoqa.com/");
-		
+		base = new Base();
+		base.getDriver().manage().window().maximize();
+		base.visitar("https://demoqa.com/");
 	}
 	
 	@Test
 	public void test1() throws InterruptedException {
-		paginaAProbar.test();
-		paginaAProbar.test2();
-		paginaAProbar.test3();
-		paginaAProbar.test4();
-		paginaAProbar.test5();
+		checkBoxPage = new CheckBoxTest(this.base);		
+		checkBoxPage.test();
 	}
 	
+	@Test
+	public void test2() throws InterruptedException {
+		dynamicProperties = new DynamicProperties(this.base);
+		dynamicProperties.test();
+	}
+	
+	@Test
+	public void test3() throws InterruptedException {
+		formPage = new FormTest(this.base);
+		formPage.test();
+	}
+		
 	
 	@After
 	public void tearDown() {
-		driver.quit();
+		base.getDriver().quit();
 	}
 	
 }

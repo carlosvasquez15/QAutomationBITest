@@ -1,36 +1,42 @@
 package com.testbi.pom;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class TestPage  extends Base{
 
-	public TestPage(WebDriver driver) {
-		super(driver);
+	public TestPage() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	String paginaPruebas = "https://demoqa.com/";
-	//By moduloElement = By.linkText("Elements");
+	
+	By elementsOption  = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Elements'])[1]/preceding::*[name()='svg'][1]");
+	By checkBoxElement = By.xpath("//li[@id='item-1']/span");
+	By expandElement   = By.className("rct-option-expand-all");
+	
+	By wordFileElement  = By.cssSelector("label[for='tree-node-wordFile']");
+	By excelFileElement = By.cssSelector("label[for='tree-node-excelFile']");
 	
 	
-	public void test() throws InterruptedException {
-		Thread.sleep(3500);
-		//test5();
-	    findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Elements'])[1]/preceding::*[name()='svg'][1]")).click();
-	    Thread.sleep(3000);
-	    findElement(By.xpath("//li[@id='item-1']/span")).click();
-	    Thread.sleep(3000);
-	    findElement(By.className("rct-option-expand-all")).click();
+	public void test() throws InterruptedException {		
+		click(elementsOption);
+		
+	    Thread.sleep(1000);
+	    click(checkBoxElement);
 	    
-	    Thread.sleep(3000);
+	    Thread.sleep(1000);
+	    click(expandElement);
 	    
-	    findElement(By.cssSelector("label[for='tree-node-wordFile']")).click();
-	    findElement(By.cssSelector("label[for='tree-node-excelFile']")).click();
-		Thread.sleep(5000);
+	    Thread.sleep(1000);
+	    
+	    click(wordFileElement);
+	    click(excelFileElement);
+	    
+		Thread.sleep(2000);		
+		assert(true);
 		
 		//test2();
 		//test3();
